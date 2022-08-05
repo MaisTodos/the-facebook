@@ -37,7 +37,7 @@ services:
       - BASE_URL=${BASE_URL}
       - DOCS_URL=http://localhost:5000
       - DYNAMODB_HOST=http://dynamodb:8000
-      - DYNAMODB_PREFIX=the_facebook
+      - DYNAMODB_PREFIX=thefacebook
       - ENV=local
     ports:
       - "8108:8108"
@@ -46,7 +46,7 @@ services:
       - "dynamodb"
       - "dynamodb-admin"
     # https://github.com/Eficode/wait-for
-    command: bash -c 'bash ./the-facebook/entrypoint.sh'
+    command: bash -c 'bash ./thefacebook/entrypoint.sh'
 
   docs:
     image: swaggerapi/swagger-ui

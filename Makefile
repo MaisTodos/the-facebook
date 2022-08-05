@@ -4,14 +4,14 @@ close:
 build:
 	ssh-add
 	@echo "--> Building Docker Base Image"
-	DOCKER_BUILDKIT=1 docker build --ssh default -t the_facebook -f docker/api/Dockerfile .
+	DOCKER_BUILDKIT=1 docker build --ssh default -t thefacebook -f docker/api/Dockerfile .
 	@echo "--> Building Compose"
 	DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build
 
 build-no-cache:
 	ssh-add
 	@echo "--> Building Docker Base Image"
-	DOCKER_BUILDKIT=1 docker build --ssh default -t the_facebook -f docker/api/Dockerfile . --no-cache
+	DOCKER_BUILDKIT=1 docker build --ssh default -t thefacebook -f docker/api/Dockerfile . --no-cache
 	@echo "--> Building Compose"
 	DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose build
 
