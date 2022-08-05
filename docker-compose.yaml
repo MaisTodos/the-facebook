@@ -46,7 +46,7 @@ services:
       - "dynamodb"
       - "dynamodb-admin"
     # https://github.com/Eficode/wait-for
-    command: bash -c 'bash ./the_facebook/entrypoint.sh'
+    command: bash -c 'bash ./the-facebook/entrypoint.sh'
 
   docs:
     image: swaggerapi/swagger-ui
