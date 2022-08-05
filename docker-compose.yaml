@@ -1,0 +1,64 @@
+version: "3"
+
+services:
+
+  dynamodb:
+    build:
+      context: .
+      dockerfile: docker/dynamodb/Dockerfile
+    command: -jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/
+    volumes:
+      - ./dynamodb-data:/home/dynamodblocal/data
+    ports:
+      - "8000:8000"
+
+  dynamodb-admin:
+    build:
+      context: .
+      dockerfile: docker/dynamodb-admin/Dockerfile
+    environment:
+      - DYNAMO_ENDPOINT=http://dynamodb:8000
+    command: dynamodb-admin
+    ports:
+      - "8001:8001"
+    depends_on:
+      - "dynamodb"
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api/Dockerfile
+    volumes:
+      - ./:/var/task
+    environment: &environment
+      - AWS_ACCESS_KEY_ID=${BANKINGAPI_AWS_ACCESS_KEY_ID}
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_SECRET_ACCESS_KEY=${BANKINGAPI_AWS_SECRET_ACCESS_KEY}
+      - BASE_URL=${BASE_URL}
+      - DOCS_URL=http://localhost:5000
+      - DYNAMODB_HOST=http://dynamodb:8000
+      - DYNAMODB_PREFIX=the_facebook
+      - ENV=local
+    ports:
+      - "8108:8108"
+    depends_on:
+      - "docs"
+      - "dynamodb"
+      - "dynamodb-admin"
+    # https://github.com/Eficode/wait-for
+    command: bash -c 'bash ./the_facebook/entrypoint.sh'
+
+  docs:
+    image: swaggerapi/swagger-ui
+    environment:
+      SWAGGER_JSON: /docs/swagger.json
+    volumes:
+      - ./docs:/docs
+    ports:
+      - "5000:8080"
+
+volumes:
+  postgres-db:
+  pgadmin-data:
+  dynamodb-data:
+  redis-data:

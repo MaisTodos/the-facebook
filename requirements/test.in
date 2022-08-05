@@ -1,0 +1,8 @@
+coverage[toml]==6.4.0
+freezegun
+flake8<4
+pytest
+pytest-chalice
+pytest-cov
+pytest-flake8==1.0.7
+safety
