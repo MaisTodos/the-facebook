@@ -1,0 +1,4 @@
+black==22.6.0
+ipdb
+pip-tools==6.4.0
+pre-commit

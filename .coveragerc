@@ -1,0 +1,4 @@
+[run]
+omit =
+    ./thefacebook/scripts/*
+    *thefacebook/dynamodb_create_tables.py
