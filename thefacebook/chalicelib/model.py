@@ -1,9 +1,7 @@
-from pynamodb.attributes import (
-    UnicodeAttribute,
-    ListAttribute,
-)
-from pynamodb.models import Model
 import os
+
+from pynamodb.attributes import ListAttribute, UnicodeAttribute
+from pynamodb.models import Model
 
 
 class UserFaces(Model):
