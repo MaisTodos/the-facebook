@@ -45,4 +45,4 @@ RUN pip install -r /tmp/base.txt
 WORKDIR /var/task/
 
 # Adds our working directory to the Python path
-ENV PYTHONPATH "${PYTHONPATH}:/var/task:/var/task/facebook"
+ENV PYTHONPATH "${PYTHONPATH}:/var/task:/var/task/thefacebook"

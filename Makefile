@@ -55,5 +55,5 @@ compile-requirements: delete-requirements
 	pip-compile base.in && \
 	pip-compile dev.in && \
 	pip-compile test.in && \
-	cat base.txt > ../the-facebook/requirements.txt && \
-	cat base-git.txt >> ../the-facebook/requirements.txt "
+	cat base.txt > ../thefacebook/requirements.txt && \
+	cat base-git.txt >> ../thefacebook/requirements.txt "

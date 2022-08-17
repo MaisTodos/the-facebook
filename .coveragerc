@@ -2,3 +2,4 @@
 omit =
     ./thefacebook/scripts/*
     *thefacebook/dynamodb_create_tables.py
+    *pynamodb_settings.py

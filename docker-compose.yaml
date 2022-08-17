@@ -24,6 +24,14 @@ services:
     depends_on:
       - "dynamodb"
 
+  dynamodb-test:
+    build:
+      context: .
+      dockerfile: docker/dynamodb/Dockerfile
+    command: -jar DynamoDBLocal.jar --inMemory
+    ports:
+      - "8002:8000"
+
   api:
     build:
       context: .
@@ -40,12 +48,14 @@ services:
       - DYNAMODB_HOST=http://dynamodb:8000
       - DYNAMODB_PREFIX=thefacebook
       - ENV=local
+      - PYNAMODB_CONFIG=/var/task/thefacebook/pynamodb_settings.py
     ports:
       - "8108:8108"
     depends_on:
       - "docs"
       - "dynamodb"
       - "dynamodb-admin"
+      - "dynamodb-test"
     # https://github.com/Eficode/wait-for
     command: bash -c 'bash ./thefacebook/entrypoint.sh'
 
