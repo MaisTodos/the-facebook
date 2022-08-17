@@ -4,5 +4,6 @@ flake8<4
 pytest
 pytest-chalice
 pytest-cov
+pytest-env
 pytest-flake8==1.0.7
 safety
