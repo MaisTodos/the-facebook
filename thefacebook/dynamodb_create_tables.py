@@ -1,4 +1,4 @@
-from thefacebook.chalicelib.models import UserFaces
+from chalicelib.models import UserFaces
 
 
 def dynamodb_create_tables():
