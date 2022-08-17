@@ -30,10 +30,11 @@ services:
       dockerfile: docker/api/Dockerfile
     volumes:
       - ./:/var/task
-    environment: &environment
-      - AWS_ACCESS_KEY_ID=${BANKINGAPI_AWS_ACCESS_KEY_ID}
+    environment:
+      &environment
+      - AWS_ACCESS_KEY_ID=1234
       - AWS_DEFAULT_REGION=us-east-1
-      - AWS_SECRET_ACCESS_KEY=${BANKINGAPI_AWS_SECRET_ACCESS_KEY}
+      - AWS_SECRET_ACCESS_KEY=1234
       - BASE_URL=${BASE_URL}
       - DOCS_URL=http://localhost:5000
       - DYNAMODB_HOST=http://dynamodb:8000
