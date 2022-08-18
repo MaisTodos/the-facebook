@@ -18,6 +18,6 @@ def create_user():
     try:
         user_id_created = schema.load(payload)
     except ValidationError as err:
-        return Response(body={"error": err.messages}, status_code=400)
+        return Response(body=err.messages, status_code=400)
 
     return Response(body={"user_id": user_id_created}, status_code=201)

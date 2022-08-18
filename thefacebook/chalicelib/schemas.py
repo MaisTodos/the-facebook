@@ -13,15 +13,16 @@ class CreateUserSchema(Schema):
     class Meta:
         unknown = EXCLUDE
 
-    image_base64 = fields.List(required=True, cls_or_instance=fields.Str)
+    images_base64 = fields.List(required=True, cls_or_instance=fields.Str)
 
-    @validates("image_base64")
-    def validate_image_base64(self, image_base64):
+    @validates("images_base64")
+    def validate_images_base64(self, images_base64):
         self.list_of_images = []
 
-        for image in image_base64:
+        for image in images_base64:
             image_load = Image.open(BytesIO(base64.b64decode(image)))
-            image_np = np.array(image_load)
+            image_rgb = image_load.convert("RGB")
+            image_np = np.array(image_rgb)
             image_faces_detected = face_recognition.face_encodings(image_np)
 
             if len(image_faces_detected) != 1:
