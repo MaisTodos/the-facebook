@@ -10,7 +10,7 @@ attrs==21.4.0
     #   pytest
 blessed==1.19.1
     # via inquirer
-botocore==1.27.46
+botocore==1.27.53
     # via chalice
 certifi==2022.6.15
     # via requests
@@ -26,13 +26,13 @@ coverage[toml]==6.4
     # via
     #   -r test.in
     #   pytest-cov
-dparse==0.5.1
+dparse==0.5.2
     # via safety
 flake8==3.9.2
     # via
     #   -r test.in
     #   pytest-flake8
-freezegun==1.2.1
+freezegun==1.2.2
     # via -r test.in
 idna==3.3
     # via requests
@@ -68,10 +68,13 @@ pytest==7.1.2
     #   -r test.in
     #   pytest-chalice
     #   pytest-cov
+    #   pytest-env
     #   pytest-flake8
 pytest-chalice==0.0.5
     # via -r test.in
 pytest-cov==3.0.0
+    # via -r test.in
+pytest-env==0.6.2
     # via -r test.in
 pytest-flake8==1.0.7
     # via -r test.in
@@ -82,10 +85,8 @@ python-dateutil==2.8.2
 python-editor==1.0.4
     # via inquirer
 pyyaml==6.0
-    # via
-    #   chalice
-    #   dparse
-readchar==3.1.0
+    # via chalice
+readchar==4.0.1
     # via inquirer
 requests==2.28.1
     # via safety
@@ -113,7 +114,9 @@ urllib3==1.26.11
 wcwidth==0.2.5
     # via blessed
 wheel==0.37.1
-    # via chalice
+    # via
+    #   chalice
+    #   readchar
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

@@ -8,7 +8,7 @@ attrs==21.2.0
     # via chalice
 blessed==1.19.1
     # via inquirer
-botocore==1.27.46
+botocore==1.27.53
     # via
     #   chalice
     #   pynamodb
@@ -34,7 +34,7 @@ marshmallow==3.14.1
     # via -r base.in
 mypy-extensions==0.4.3
     # via chalice
-numpy==1.23.1
+numpy==1.23.2
     # via face-recognition
 pillow==9.2.0
     # via face-recognition
@@ -46,7 +46,7 @@ python-editor==1.0.4
     # via inquirer
 pyyaml==5.4.1
     # via chalice
-readchar==3.1.0
+readchar==4.0.1
     # via inquirer
 six==1.16.0
     # via
@@ -58,7 +58,9 @@ urllib3==1.26.11
 wcwidth==0.2.5
     # via blessed
 wheel==0.37.1
-    # via chalice
+    # via
+    #   chalice
+    #   readchar
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

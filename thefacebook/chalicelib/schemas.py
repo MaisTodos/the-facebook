@@ -4,7 +4,7 @@ from io import BytesIO
 
 import face_recognition
 import numpy as np
-from chalicelib.model import UserFaces
+from chalicelib.models import UserFaces
 from marshmallow import EXCLUDE, Schema, ValidationError, fields, post_load, validates
 from PIL import Image
 
